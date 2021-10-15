@@ -1,7 +1,7 @@
 package main
 
 import (
-	"fmt"
+	"errors"
 	"root/model"
 	"strconv"
 	"unicode"
@@ -9,33 +9,40 @@ import (
 
 func main() {
 
-	str1 := "TX03ABC"
-	str2 := "NN055B634"
+	// str1 := "TX03ABC"
+	// str2 := "NN0556784"
 
-	result1 := parseStruct(str1)
-	result2 := parseStruct(str2)
+	// result1, err1 := ParseStruct(str1)
+	// result2, err2 := ParseStruct(str2)
 
-	fmt.Println(result1)
-	fmt.Println(result2)
+	// fmt.Println(result1, err1)
+	// fmt.Println(result2, err2)
 
 }
 
-func parseStruct(str string) *model.Result {
+func ParseStruct(str string) (*model.Result, error) {
 	typ := str[0:2]
 	length := parseInt(str[2:4])
 	value := str[4:]
 
 	if len(value) == length {
-		if typ == "NN" && IsNumber(value) {
-			return model.NewResult(typ, length, value)
-		}
-		if typ == "TX" && IsLetter(value) {
-			return model.NewResult(typ, length, value)
+		if typ == "NN" {
+			if IsNumber(value) {
+				return model.NewResult(typ, length, value), nil
+			} else {
+				return new(model.Result), errors.New("cadena tipo NN con caracteres no numericos")
+			}
+		} else if typ == "TX" {
+			if IsLetter(value) {
+				return model.NewResult(typ, length, value), nil
+			} else {
+				return new(model.Result), errors.New("cadena tipo TX con caracteres no alfabeticos")
+			}
+		} else {
+			return new(model.Result), errors.New("tipo de cadena invalida")
 		}
 	}
-
-	obj := new(model.Result)
-	return obj
+	return new(model.Result), errors.New("largo de cadena invalida")
 }
 
 func IsLetter(str string) bool {

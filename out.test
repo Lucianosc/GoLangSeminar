@@ -1,0 +1,22 @@
+mode: set
+root/main.go:10.14,21.2 0 0
+root/main.go:23.53,28.26 4 1
+root/main.go:45.2,45.66 1 1
+root/main.go:28.26,29.18 1 1
+root/main.go:29.18,30.23 1 1
+root/main.go:30.23,32.5 1 1
+root/main.go:32.10,34.5 1 1
+root/main.go:35.9,35.25 1 1
+root/main.go:35.25,36.23 1 1
+root/main.go:36.23,38.5 1 1
+root/main.go:38.10,40.5 1 1
+root/main.go:41.9,43.4 1 0
+root/main.go:48.32,49.27 1 1
+root/main.go:54.2,54.13 1 1
+root/main.go:49.27,50.30 1 1
+root/main.go:50.30,52.4 1 1
+root/main.go:57.32,58.27 1 1
+root/main.go:63.2,63.13 1 1
+root/main.go:58.27,59.30 1 1
+root/main.go:59.30,61.4 1 1
+root/main.go:66.31,69.2 2 1
